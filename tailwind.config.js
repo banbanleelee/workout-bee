@@ -1,17 +1,21 @@
-/** @type {import('tailwindcss').Config} */
+/**
+ * @type {import('@types/tailwindcss/tailwind-config').TailwindConfig}
+ */
 module.exports = {
-  content: ['./app/**/*.{js,ts,jsx,tsx,mdx}'],
-  theme: {
+  content: [
+    "./node_modules/flowbite-react/**/*.js",
+    "./pages/**/*.{ts,tsx}",
+    "./public/**/*.html",
+  ],
+  plugins: [
+    require("flowbite/plugin")
+  ],
+  theme: {},
+  variants: {
     extend: {
-      colors: {
-        background: 'hsl(var(--background))',
-        foreground: 'hsl(var(--foreground))',
-        btn: {
-          background: 'hsl(var(--btn-background))',
-          'background-hover': 'hsl(var(--btn-background-hover))',
-        },
-      },
+      // ...
+      // Add the 'hover' variant
+      backgroundColor: ['responsive', 'hover', 'focus'],
     },
   },
-  plugins: [],
-}
+};
